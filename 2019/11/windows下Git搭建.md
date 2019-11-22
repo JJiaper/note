@@ -90,7 +90,7 @@ $ git branch -a
 $ git branch [branch-name]
 # 新建一个分支，并切换到该分支
 $ git checkout -b [branch]
-git checkout -b appoint_box（别名） origin/feature/20181128_1491627_appoint_box_1（分支名）
+git checkout -b appoint_box（别名） origin/feature/20181128_t_box_1（分支名）
 # 新建一个分支，指向指定commit
 $ git branch [branch] [commit]
 # 新建一个分支，与指定的远程分支建立追踪关系
