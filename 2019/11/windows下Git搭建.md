@@ -111,3 +111,5 @@ $ git branch -d [branch-name]
 $ git push origin --delete [branch-name]
 $ git branch -dr [remote/branch]
 ```
+## **更多详细见：**
+[https://www.jianshu.com/p/46ffff059092](https://www.jianshu.com/p/46ffff059092)
