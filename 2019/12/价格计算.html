@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数据处理</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+</head>
+<body>
+	<div class="contains" style="width:1400PX;">
+		<table class="table">
+			<thead>
+				<tr>
+					<td style="width:160px;">故障问题部位</td>
+					<td>手持终端</td>
+					<td>油箱</td>
+					<td>发动机</td>
+					<td>底盘</td>
+					<td>油门</td>
+					<td>雨刮器</td>
+					<td>空调冷媒</td>
+					<td>机油滤清器</td>
+					<td>灯</td>
+					<td>方向盘</td>
+					<td>支杆</td>
+					<td>变速器</td>
+				</tr>
+			</thead>
+			<tr>
+				<th>总体的数量</th>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+				<td><input type="" name="totalNum" style="width: 80px;"></td>
+			</tr>
+			<tr>
+				<th style="width:100px;">单价</th>
+				<td><input value="" id="" type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+				<td><input type="" name="happenNum" style="width: 80px;"></td>
+			</tr>
+			<tr>
+				<th>发生的概率(n%)</th>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+				<td><input type="" name="probability" style="width: 80px;"></td>
+			</tr>
+			<!--<tr>
+				<td><button class="button" onclick="getWuLi()">计算物力资源</button></td>
+				<td><input type="" name="sum" style="width:80px"></td>
+			</tr>-->
+		</table>
+		
+		<table class="table" style="width: 360px">
+			<thead>
+				<tr>
+					<td style="width:260px;">资金投入</td>
+					<td>人力资源</td>
+					<td>信息资源</td>
+				</tr>
+			</thead>
+			<tr>
+				<th>资金</th>
+				<td><input type="" name="xinxiziyuan" id="changjia" style="width: 80px;"></td>
+				<td><input type="" name="xinxiziyuan" id="xinxitouzi"  style="width: 80px;"></td>
+			</tr>
+			<!--
+			<tr>
+				<td><button class="button" onclick="getInformation()">计算信息资源</button></td>
+				<td><input type="" name="sum" style="width:80px"></td>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="getInformation()">计算保存月总经费</button></td>
+				<td><input type="" name="sum" style="width:80px"></td>
+			</tr>-->
+		</table>
+		<button class="button" onclick="SaveAndAddData()">保存本月数据并录入下月数据</button>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<td style="width:120px;">阶段</td>
+					<td style="width:120px;">第一月</td>
+					<td style="width:120px;">第二月</td>
+					<td style="width:120px;">第三月</td>
+					<td style="width:120px;">第四月</td>
+					<td style="width:120px;">第五月</td>
+					<td style="width:120px;">第六月</td>
+					<td style="width:120px;">第七月</td>
+					<td style="width:120px;">第八月</td>
+					<td style="width:120px;">第九月</td>
+					<td style="width:120px;">第十月</td>
+					<td style="width:120px;">第十一月</td>
+					<td style="width:120px;">第十二月</td>
+				</tr>
+			</thead>
+			<tr>
+				<th>物力资源</th>
+				<td><input type="" id="1_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="2_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="3_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="4_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="5_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="6_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="7_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="8_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="9_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="10_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="11_yw" name="wuliziyuan" style="width: 80px;"></td>
+				<td><input type="" id="12_yw" name="wuliziyuan" style="width: 80px;"></td>
+			</tr>
+			<tr>
+				<th>资金投入</th>
+				<td><input type="" id="1_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="2_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="3_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="4_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="5_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="6_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="7_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="8_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="9_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="10_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="11_yxx" name="xinxi" style="width: 80px;"></td>
+				<td><input type="" id="12_yxx" name="xinxi" style="width: 80px;"></td>
+			</tr>
+		</table>
+		<button class="button" onclick="maketable()">制作图表</button>
+	</div>
+	<div id="main1" style="width: 1000px;height:400px;"></div>
+	<script type="text/javascript">
+		$(document).ready(function(){ 
+			var numbMoth = 1;
+		}); 
+		var numbMoth = 1;
+		var totalNumArr = new Array();
+		var happenNumArr = new Array();
+		var probabilityArr = new Array();
+		var wuliziyuanArr = new Array();
+		var xinxiArr = new Array();
+		var dataArr = new Array();
+
+		function maketable(){
+			var myChart = echarts.init(document.getElementById('main1'));
+				dataArr = new Array();
+				var arrt1 = $("input[name='wuliziyuan']");
+				var arrt2 = $("input[name='xinxi']");
+				for (let i = 0 ; i < arrt1.length; i++) {
+					if (arrt1[i].value&&arrt1[i].value!=null) {
+						dataArr.push(parseInt(arrt1[i].value)+parseInt(arrt2[i].value));
+					}
+				};
+
+		    // 指定图表的配置项和数据
+		    var option = {
+		        title: {
+		            text: '总经费'
+		        },
+		        tooltip: {},
+		        legend: {
+		            data: ['经费']
+		        },
+		        xAxis: {
+		        	 type: 'category',
+		             data: ["第一月", "第二月", "第三月", "第四月", "第五月", "第六月","第七月","第八月", "第九月", "第十月", "第十一月", "第	十二月"]
+		        },
+		        yAxis: {},
+		        series: [{
+		            name: '销量',
+		            type: 'line',
+		            data:dataArr
+		        }]
+		    };
+		    // 使用刚指定的配置项和数据显示图表。
+		    myChart.setOption(option);
+		}
+		
+
+		//计算月度总经费
+		function SaveAndAddData() {
+			let informationMoney = getInforma();
+			let wuliMoney = getWuLiM();
+			let idStrWL = numbMoth + "_yw";
+			let idStrXX = numbMoth + "_yxx";
+			$("#"+idStrWL).val(wuliMoney);
+			$("#"+idStrXX).val(informationMoney);
+
+			//清除上个月输入的数据
+			$("input[name='happenNum']").val("");
+			$("input[name='totalNum']").val("");
+			$("input[name='probability']").val("");
+			$("input[name='xinxiziyuan']").val("");
+			 totalNumArr = new Array();
+			 happenNumArr = new Array();
+			 probabilityArr = new Array();
+			 numbMoth++;
+			//let MonthTotalMoney = wuliMoney + informationMoney;
+		};
+
+		//计算月度信息资源
+		function getInforma(){
+			let changjiaMoney = $("#changjia").val();
+			let xinxitouziMoney = $("#xinxitouzi").val();
+			if (changjiaMoney==""&&changjiaMoney==0) {
+				changjiaMoney = 0;
+			}
+			if (xinxitouziMoney==""&&xinxitouziMoney==0) {
+				xinxitouziMoney = 0;
+			}
+			if (xinxitouziMoney==0&&changjiaMoney==0) {
+				return 0;
+			}
+			let totalInforMoney = parseInt(numbMoth*3000) + parseInt(xinxitouziMoney)+parseInt(changjiaMoney);
+			return totalInforMoney
+		};
+
+		//计算月度物力资源
+		function getWuLiM(){
+			var arr1 = $("input[name='happenNum']");
+			var arr2 = $("input[name='totalNum']");
+			var arr3 = $("input[name='probability']");
+			for (let i = 0 ; i < arr1.length; i++) {
+				happenNumArr.push(parseInt(arr1[i].value)*parseInt(arr2[i].value));
+				totalNumArr.push(arr2[i].value);
+				probabilityArr.push((arr3[i].value/100).toFixed(4));
+			};
+			return plus(happenNumArr,probabilityArr);
+		};
+
+		//用元函数map计算两个数组的映射后的值
+		function plus(a, b) {
+		  var endNum=0;
+		  a.map(function(e, i){
+		  	endNum+=e*b[i];
+		    //return e*b[i];
+		  });
+		  return endNum;
+		}
+	</script>
+</body>
+</html>
