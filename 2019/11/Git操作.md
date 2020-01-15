@@ -1,14 +1,14 @@
-  # Git
+﻿  # Git
 
 * 第一步， 先配置自己的名称和邮箱
 
 ```
 $ git config --global user.name "Your Name"
-$ git config --global user.email "email@example.com"
+$ git config --global user.email "pengxiaojia001@163.com"
 ```
 * 第二步 生成ssh
 ```
-$ ssh-keygen -t rsa -C "youremail@example.com"
+$ ssh-keygen -t rsa -C "pengxiaojia001@163.com"
 ```
 直接三下回车，会生成一个两个文件在
 
