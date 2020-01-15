@@ -1,4 +1,18 @@
 ## 解压缩命令
+
+### 打包: zip
+**zip**
+安装：
+```
+yum install unzip
+yum install zip
+```
+
+使用
+```
+unzip web.zip
+```
+
 ### 打包: tar
 
 计算机中的数据经常需要备份，tar 是 Unix/Linux 中最常用的备份工具，此命令可以把一系列文件归档到一个大文件中，也可以把档案文件解开以恢复数据。

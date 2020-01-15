@@ -1,11 +1,12 @@
-基本命令记录 --linux
+## 基本命令记录 --linux
 
 centos 包管理器 yum
 ubuntu debian kali 包管理器 apt-get
 
 
-查看系统的信息：
+### 查看系统的信息：
 
+```
 uname -a
 cat /etc/issue        # 查看操作系统版本——Os版本
 cat /proc/version      #包含GCC的版本信息
@@ -18,10 +19,12 @@ lspci -tv             # 列出所有PCI设备
 lsusb -tv             # 列出所有USB设备
 lsmod                 # 列出加载的内核模块
 env                   # 查看环境变量
+```
 
 
-资源信息：
+### 资源信息：
 
+```
 free -m # 查看内存使用量和交换区使用量
 df -h # 查看各分区使用情况
 du -sh <目录名> # 查看指定目录的大小
@@ -29,9 +32,11 @@ grep MemTotal /proc/meminfo # 查看内存总量
 grep MemFree /proc/meminfo # 查看空闲内存量
 uptime # 查看系统运行时间、用户数、负载
 cat /proc/loadavg # 查看系统负载
+```
 
-磁盘信息：
+### 磁盘信息：
 
+```
 mount | column -t # 查看挂接的分区状态
 fdisk -l # 查看所有分区
 swapon -s # 查看所有交换分区
@@ -40,9 +45,11 @@ dmesg | grep IDE # 查看启动时IDE设备检测状况
  下载网络工具net-tools
 
   sudo apt-get install net-tools
+```
 
-网络信息;
+### 网络信息;
 
+```
 ifconfig # 查看所有网络接口的属性
 iptables -L # 查看防火墙设置
 route -n # 查看路由表
@@ -51,50 +58,61 @@ netstat -antp # 查看所有已经建立的连接
 netstat -s # 查看网络统计信息
 netstat -an #查看哪些IP连接本机
 netstat -nap | grep 22066 查看Linux端口的占用及连接情况
+```
 
 
-临时关闭防火墙
+### 临时关闭防火墙
+```
 service firewalld stop 直接关闭防火墙
 service iptables stop  直接关闭防火墙
+```
 
-永久关闭防火墙
+### 永久关闭防火墙
 
+```
 systemctl stop firewalld
-
 systemctl disable firewalld
-
 firewall-cmd --reload
+```
 
+### 用户信息：
 
-
-
-用户信息：
-
+```
 w # 查看活动用户
 id <用户名> # 查看指定用户信息
 last # 查看用户登录日志
 cut -d: -f1 /etc/passwd # 查看系统所有用户
 cut -d: -f1 /etc/group # 查看系统所有组
 crontab -l # 查看当前用户的计划任务
+```
 
 
-进程信息：
+### 进程信息：
 
+```
 ps -ef # 查看所有进程
-top # 实时显示进程状态
+加上筛选
+ps -ef|grep abc.jar
+`|` 为管道符，至于管道符是啥稍后解释
+grep即为筛选
+
+```
 
 
-基本分区方案：
+### 基本分区方案：
 
+```
 1. 挂载点/；主分区；安装系统和软件；大小为30G；分区格式为ext4； 
 2. 挂载点/home；逻辑分区；相当于“我的文档”；大小为硬盘剩下的;
 分区格式ext4； 
 3. swap；逻辑分区；充当虚拟内存；大小等于内存大小（本人2G）；
 分区格式为swap 
 4. /boot ；引导分区；逻辑分区； 大小为200M ；分区格式为ext4；
+```
 
-上传下载文件:lrzsz
+### 上传下载文件:lrzsz(在一些客户端下可以使用，比如xshell，finalshell,putty下就不能用)
 
+```
 1. 【安装命令】：yum install lrzsz
  
 2. 【从linux服务器发送文件 filename 到本地 wndows】：
@@ -104,58 +122,80 @@ sz filename
 rz
 这时会弹出窗口让你选择上传的文件.
 4. xshell中可以设置上传和下载文件的默认路径，文件/属性/zmodem.
+```
 
-解压文件 tar.gz
+### 解压文件 tar.gz
 
+```
 tar -zxvf  filename.tar.gz
+```
 
-移动文件夹/文件
+### 移动文件夹/文件(也可以作为重命名来使用)
+```
 mv fileoldpath/filename  filenewppath
+```
 
-重命名文件/文件夹
-cp oldname newname
+### 复制名文件/文件夹
+```
+### cp oldname newname
+```
 
-删除文件
+### 删除文件
+```
 rm filename -f
+```
 
-删除文件夹(递归删除)
+### 删除文件夹(递归删除)
+
+```
 rmdir name -f -r
+或者
+rm dirname -rf
+```
 
-新建文件
+### 新建文件
 
+```
 mk filename
 touch filename
 vi filename
 vim filename
+```
 
-新建文件夹
+### 新建文件夹
+```
 mkdir name
+```
 
-查找文件
+### 查找文件
+```
 whereis filename
+```
 
-在vim模式下操作
+### 在vim模式下操作
 
+```
 进入 输入模式 i
 进入 nomal模式 esc
 查找字符串 / 然后输入字符串回车 n查找下一个，N上一个
+```
 
-创建用户，创建组
+### 创建用户，创建组
 
-#建立一个mysqlgroup的组
+####建立一个mysqlgroup的组
 groupadd mysqlgroup
 
-#建立mysqluser用户，并且把用户放到mysqlgroup组
+####建立mysqluser用户，并且把用户放到mysqlgroup组
 useradd -r -g mysqlgroup mysqluser
 
-#为mysqluser用户设置密码
+####为mysqluser用户设置密码
 passwd mysqluser
 
-#给目录/usr/local/mysql 更改拥有者
+####给目录/usr/local/mysql 更改拥有者
 chown -R mysqluser:mysqlgroup /usr/local/mysql
 
 
-ssh登录：
+### ssh登录：
 
 打开终端，或者是用工具登录到目标服务器（你要通过ssh登录到的那个服务器）
 
@@ -163,17 +203,17 @@ ssh登录：
 
 *
 
-出现三个交互的地方，
-第一个是你想要保存的地址，默认就好（默认回车），有需要自己更改
-第二个是输入密码，不需要密码，直接回车
-第三个是确认密码，同样回车
+    出现三个交互的地方，
+    第一个是你想要保存的地址，默认就好（默认回车），有需要自己更改
+    第二个是输入密码，不需要密码，直接回车
+    第三个是确认密码，同样回车
 
 *
 
-此时切换到ssh的目录
-cd /root/.ssh
+    此时切换到ssh的目录
+    cd /root/.ssh
 
-查看全部的文件
+    查看全部的文件
 ll
 *
 
@@ -201,8 +241,9 @@ SSH登录的原理
 
 
 
-rpm 操作
+### rpm 操作
 
+```
 1.安装rpm包
 rpm -ivh *.rpm
 
@@ -222,7 +263,6 @@ rpm -ql 软件包名 ：查询软件包中的文件的安装位置
 rpm -qf 文件全路径名：查询文件所属的软件包 ，例如：
 rpm -qf /etc/passwd 
 
- 
 
 3.卸载rpm包：
 
@@ -231,9 +271,9 @@ rpm -qf /etc/passwd 
 应用案例 ：删除firefox  软件包 
 
 rpm -e firefox
+```
 
-
-权限相关
+### 权限相关
 
 
 格式：
@@ -264,7 +304,7 @@ d rwx  rwx  rwx  =777  表示目录的操作权限
 
 uname - a,
 uname - v,
-后台运行程序
+### 后台运行程序
 
 nohup java -jar xxx.jar >>test.log &1 &
 
@@ -296,7 +336,7 @@ tail -f nohup.out
 
  比如执行下面这个脚本后，jobs显示不出来：
 
-#!/bin/bash
+
 nohup java -Dfile.encoding=UTF-8 -Dname=Runtime-Name -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar test.jar $1 $2 $3 &
 (2) ps命令
 
